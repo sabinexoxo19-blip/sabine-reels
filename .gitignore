@@ -1,0 +1,5 @@
+portadas/
+.voz_cache/
+__pycache__/
+*.tmp.mp4
+*.tmp

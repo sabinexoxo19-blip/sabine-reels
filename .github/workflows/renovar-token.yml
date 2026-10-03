@@ -1,0 +1,24 @@
+name: Renouveler la clé Instagram
+
+# La clé Instagram expire au bout de 60 jours. Elle est renouvelée chaque lundi, toute seule.
+on:
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  renovar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Renouveler et enregistrer la clé
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          RESP=$(curl -sf "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${IG_TOKEN}")
+          NUEVO=$(echo "$RESP" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+          echo "::add-mask::$NUEVO"
+          gh secret set IG_TOKEN --repo "$REPO" --body "$NUEVO"
+          echo "Clé renouvelée. Elle expire dans $(echo "$RESP" | python3 -c "import sys,json; print(json.load(sys.stdin)['expires_in']//86400)") jours."

@@ -1,0 +1,48 @@
+name: Publier sur Instagram
+
+on:
+  schedule:
+    # 4 Reels par jour, heure de Paris (le passage à l'heure d'hiver est géré tout seul).
+    - cron: "12 8 * * *"
+      timezone: "Europe/Paris"
+    - cron: "12 13 * * *"
+      timezone: "Europe/Paris"
+    - cron: "12 19 * * *"
+      timezone: "Europe/Paris"
+    - cron: "42 21 * * *"
+      timezone: "Europe/Paris"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Essai sans publier (1 = essai, 0 = publier pour de vrai)"
+        default: "1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: escritura-repo
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publier le Reel suivant
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: python3 publicar.py
+
+      - name: Enregistrer l'état de la file
+        if: ${{ (github.event.inputs.dry_run || '0') != '1' }}
+        run: |
+          git config user.name "bot-publicador"
+          git config user.email "bot@users.noreply.github.com"
+          git add cola.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "Publicado: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase
+          git push

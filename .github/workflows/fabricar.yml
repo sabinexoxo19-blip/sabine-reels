@@ -1,0 +1,43 @@
+name: Fabriquer les Reels
+
+# Se lance à la main (onglet Actions → Fabriquer les Reels → Run workflow).
+# Crée les vidéos de posts/ et la file cola.json à partir de fabrica/frases.py, avec la voix Azure.
+# S'il s'arrête en route, il suffit de le relancer : ce qui est déjà fait est gardé.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: escritura-repo
+  cancel-in-progress: false
+
+jobs:
+  fabricar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les outils
+        run: |
+          which ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          pip install --quiet pillow numpy
+
+      - name: Fabriquer les Reels (1 à 3 heures)
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: cd fabrica && python3 construir.py --reanudar
+
+      - name: Enregistrer les Reels
+        if: ${{ always() }}
+        run: |
+          git config user.name "bot-publicador"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A posts cola.json 2>/dev/null || git add -A posts 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Reels fabricados"
+          git pull --rebase
+          git push
