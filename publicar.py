@@ -12,12 +12,46 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 API = "https://graph.instagram.com"
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 COLA = os.path.join(RAIZ, "cola.json")
-AVISO_COLA_BAJA = 12          # menos de 3 días de posts a 4/día
+AVISO_COLA_BAJA = 12          # moins de 3 jours de Reels à 4 par jour
+
+# Créneaux de publication, heure de Paris. Le robot est réveillé toutes les 30 minutes par GitHub
+# (dont les horaires programmés peuvent avoir des heures de retard) et ne publie que si un créneau
+# est passé depuis la dernière publication.
+PARIS = ZoneInfo("Europe/Paris")
+CRENEAUX = [(8, 12), (13, 12), (19, 12), (21, 42)]
+RETARD_MAX = timedelta(hours=2)     # créneau manqué depuis plus longtemps : on attend le suivant
+ECART_MIN = timedelta(hours=2)      # jamais deux Reels à moins de 2 h d'écart
+
+
+def creneau_courant(maintenant):
+    """Dernier créneau passé (heure de Paris) avant « maintenant »."""
+    m = maintenant.astimezone(PARIS)
+    for jour in (m, m - timedelta(days=1)):
+        passes = [jour.replace(hour=h, minute=mi, second=0, microsecond=0) for h, mi in CRENEAUX]
+        passes = [c for c in passes if c <= m]
+        if passes:
+            return passes[-1]
+
+
+def faut_il_publier(cola, maintenant):
+    """(True/False, raison) pour un réveil automatique."""
+    dates = [datetime.strptime(p["publicado"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+             for p in cola if p.get("publicado")]
+    derniere = max(dates) if dates else None
+    creneau = creneau_courant(maintenant)
+    if derniere and derniere >= creneau:
+        return False, f"le créneau de {creneau:%H:%M} est déjà servi"
+    if maintenant - creneau > RETARD_MAX:
+        return False, f"créneau de {creneau:%H:%M} trop ancien, on attend le suivant"
+    if derniere and maintenant - derniere < ECART_MIN:
+        return False, "dernière publication il y a moins de 2 h"
+    return True, f"créneau de {creneau:%H:%M}"
 
 
 def llamar(metodo, ruta, **params):
@@ -70,6 +104,11 @@ def main():
         cola = json.load(f)
 
     pendientes = [p for p in cola if not p.get("publicado")]
+    if os.environ.get("AUTO") == "1":
+        ok, raison = faut_il_publier(cola, datetime.now(timezone.utc))
+        print(f"Réveil automatique : {raison}.")
+        if not ok:
+            return
     if not pendientes:
         sys.exit("La file est vide : plus rien à publier. Il faut ajouter de nouveaux Reels.")
     post = pendientes[0]
