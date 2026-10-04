@@ -37,15 +37,8 @@ HASHTAG_FIXE = "#hypersensibilite"
 HASHTAGS = ["#hypersensible", "#hautesensibilite", "#sensibilite", "#anxiete",
             "#emotions", "#bienveillance", "#developpementpersonnel"]
 
-# Reels photo du livre, glissés après les Reels 30, 60 et 90 (zoom lent, sans voix).
-LIVRE = [
-    ("libro_2.jpg", True, "Je l'ai écrit pour toi qu'on a toujours trouvé « trop ». Cent une vérités courtes, "
-                          "à ouvrir au hasard, le soir. 📖\n\nLe lien est dans mon profil."),
-    ("libro_1.jpg", False, "Pas une méthode, pas un discours sur le superpouvoir : juste des mots sur ce que tu "
-                           "vis depuis toujours. 📖\n\nLe lien est dans mon profil."),
-    ("libro_2.jpg", True, "Si tu connais quelqu'un qui se sent « trop », offre-le-lui. Parfois, il suffit de la "
-                          "bonne phrase au bon moment. 📖\n\nLe lien est dans mon profil."),
-]
+# Photo du livre en main, ajoutée à la fin des Reels dont la légende renvoie au livre.
+FIN_LIVRE = "libro_1.jpg"
 
 
 def hashtags(k):
@@ -65,31 +58,6 @@ def legende(i, f):
     return tipografia("\n\n".join(blocs))
 
 
-def reel_livre(foto, mp4, jpg):
-    """Reel de 7 s : la photo du livre avec un zoom très lent."""
-    from PIL import Image
-    im = Image.open(os.path.join(AQUI, foto)).convert("RGB")
-    w, h = im.size
-    if w / h > 9 / 16:
-        nw = int(h * 9 / 16)
-        im = im.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
-    else:
-        nh = int(w * 16 / 9)
-        im = im.crop((0, (h - nh) // 2, w, (h - nh) // 2 + nh))
-    im = im.resize((1080, 1920), Image.LANCZOS)
-    im.save(jpg, "JPEG", quality=92)
-    subprocess.run([
-        "ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", jpg,
-        "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=48000",
-        "-filter_complex",
-        "[0:v]scale=2160:3840,zoompan=z='1+0.035*on/210':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-        ":d=210:s=1080x1920:fps=30,format=yuv420p[v]",
-        "-map", "[v]", "-map", "1:a", "-t", "7", "-c:v", "libx264", "-preset", "medium", "-crf", "23",
-        "-maxrate", "1200k", "-bufsize", "2400k", "-profile:v", "high",
-        "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-movflags", "+faststart", mp4], check=True)
-    return 7.0, 500
-
-
 def duree_valide(mp4):
     try:
         r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp4],
@@ -103,11 +71,9 @@ def tache(t):
     numero, tipo, datos = t
     mp4 = os.path.join(POSTS, f"{numero:04d}.mp4")
     jpg = os.path.join(PORTADAS, f"{numero:04d}.jpg")
-    if tipo == "libro":
-        dur, portada = reel_livre(datos, mp4, jpg)
-    else:
-        f, voces, seed = datos
-        dur, portada = generar(f["hook"], f["texto"], mp4, jpg, seed=seed, numero=f["n"], voces=voces)
+    f, voces, seed, fin = datos
+    dur, portada = generar(f["hook"], f["texto"], mp4, jpg, seed=seed, numero=f["n"], voces=voces,
+                           fin_livre=os.path.join(AQUI, FIN_LIVRE) if fin else None)
     print(f"{numero:04d} fabriqué ({dur:.1f} s)", flush=True)
     return numero, dur, portada
 
@@ -130,23 +96,23 @@ def main():
             ancienne = {p["archivo"]: p for p in json.load(fh)}
 
     # 1. la file, dans l'ordre de publication
-    cola, travaux, n_livre = [], [], 0
+    cola, travaux = [], []
     for i, f in enumerate(FRASES):
-        if i and i % 30 == 0 and n_livre < len(LIVRE):
-            foto, ia, cap = LIVRE[n_livre]
-            texte = cap + (f"\n\n{IA}" if ia else "") + "\n\n" + hashtags(i + 50)
-            n = len(cola) + 1
-            cola.append({"archivo": f"{n:04d}.mp4", "leyenda": tipografia(texte), "tipo": "libro",
-                         "foto": foto, "publicado": None})
-            travaux.append((n, "libro", foto))
-            n_livre += 1
-        n = len(cola) + 1
+        n = i + 1
+        fin = (i + 1) % 4 == 0                      # mêmes Reels que ceux dont la légende cite le livre
         cola.append({"archivo": f"{n:04d}.mp4", "leyenda": legende(i, f), "tipo": "frase",
-                     "verite": f["n"], "hook": f["hook"].replace("*", ""), "publicado": None})
-        travaux.append((n, "frase", (f, None, 1000 + i)))
+                     "verite": f["n"], "hook": f["hook"].replace("*", ""), "fin_livre": fin,
+                     "publicado": None})
+        travaux.append((n, "frase", (f, None, 1000 + i, fin)))
 
     if solo:
         travaux = [t for t in travaux if t[0] in solo]
+    else:                                           # vidéos d'une ancienne file qui n'existent plus
+        noms = {p["archivo"] for p in cola}
+        for nom in sorted(os.listdir(POSTS)):
+            if nom.endswith(".mp4") and nom not in noms:
+                os.remove(os.path.join(POSTS, nom))
+                print(f"{nom} supprimé (n'est plus dans la file)", flush=True)
 
     # 2. reprise : on garde les vidéos complètes déjà fabriquées
     resultats = {}
@@ -155,9 +121,14 @@ def main():
         for t in travaux:
             nom = f"{t[0]:04d}.mp4"
             d = duree_valide(os.path.join(POSTS, nom))
-            if d:
-                a = ancienne.get(nom, {})
-                resultats[t[0]] = (a.get("duracion") or d, 500 if t[1] == "libro" else 1500)
+            a = ancienne.get(nom)
+            nouveau = cola[t[0] - 1]
+            meme = (a is None and not ancienne) or (
+                a is not None and a.get("hook") == nouveau["hook"]
+                and bool(a.get("fin_livre")) == nouveau["fin_livre"])
+            if d and meme:
+                a = a or {}
+                resultats[t[0]] = (a.get("duracion") or d, 1500)
                 for cle in ("publicado", "media_id", "musica"):
                     if a.get(cle):
                         cola[t[0] - 1][cle] = a[cle]
@@ -174,8 +145,8 @@ def main():
         prets = []
         for k, t in enumerate(travaux):
             if t[1] == "frase":
-                f, _, seed = t[2]
-                t = (t[0], "frase", (f, voz.lire_reel(f["hook"], f["texto"]), seed))
+                f, _, seed, fin = t[2]
+                t = (t[0], "frase", (f, voz.lire_reel(f["hook"], f["texto"]), seed, fin))
                 print(f"voix {k + 1}/{len(travaux)}", flush=True)
             prets.append(t)
         travaux = prets

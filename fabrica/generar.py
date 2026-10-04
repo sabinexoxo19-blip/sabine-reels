@@ -31,6 +31,8 @@ CENTRO_HOOK = 880
 Y_FIRMA = 1360                     # por encima de la leyenda de Instagram (y > 1560)
 T_HOOK = 2.6                       # segundos de hook a pantalla completa
 ZOOM = 0.035
+T_LIBRO = 3.2                      # segundos de foto del libro al final (si se pide)
+FUNDIDO_LIBRO = 0.6
 
 PAPEL = np.array([243, 233, 218], dtype=np.float32)
 ROJO = (153, 37, 33)
@@ -347,11 +349,13 @@ def suav(x):
     return x * x * (3 - 2 * x)
 
 
-def generar(hook_txt, parrafos, destino_mp4, destino_jpg, seed=1, numero=None, espera=4.0, voces=None):
+def generar(hook_txt, parrafos, destino_mp4, destino_jpg, seed=1, numero=None, espera=4.0, voces=None,
+            fin_livre=None):
     """Crea el Reel y su portada (el hook). Devuelve (duración, instante de portada en ms).
 
     voces: lista opcional de archivos de audio [hook, párrafo 1, párrafo 2, …] leídos por la voz.
     Si se dan, el texto se sincroniza con la voz.
+    fin_livre: foto del libro (jpg 9:16) que aparece al final con un fundido y un zoom lento.
     """
     d = ImageDraw.Draw(Image.new("L", (1, 1)))
     base = papel(seed)
@@ -386,6 +390,14 @@ def generar(hook_txt, parrafos, destino_mp4, destino_jpg, seed=1, numero=None, e
     t_firma = t + 0.2
     fin_anim = t_firma + 1.6
     duracion = fin_anim + espera
+    t_libro = None
+    if fin_livre:                                  # la página se queda 1,8 s y llega el libro
+        t_libro = fin_anim + min(espera, 1.8)
+        duracion_texto = t_libro
+        duracion = t_libro + T_LIBRO
+        foto = Image.open(fin_livre).convert("RGB").resize((W, H), Image.LANCZOS)
+    else:
+        duracion_texto = duracion
     n = int(round(duracion * FPS))
     xs = np.arange(W, dtype=np.float32)[None, :]
     C = {k: np.array(v, dtype=np.float32) for k, v in
@@ -469,11 +481,23 @@ def generar(hook_txt, parrafos, destino_mp4, destino_jpg, seed=1, numero=None, e
         return img
 
     def camara(img, tt, i):
-        z = 1.0 + ZOOM * suav(tt / duracion)
+        z = 1.0 + ZOOM * suav(min(tt, duracion_texto) / duracion_texto)
         im = Image.fromarray(np.clip(img + ruido[(i // 3) % len(ruido)], 0, 255).astype(np.uint8))
         cw, ch = W / z, H / z
         x0, y0 = (W - cw) / 2, (H - ch) * 0.47
         return im.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch))
+
+    def libro(tt, pg, i):
+        """Foto del libro con zoom lento; fundido desde la página al principio."""
+        k = (tt - t_libro) / T_LIBRO
+        z = 1.0 + 0.04 * k
+        cw, ch = W / z, H / z
+        x0, y0 = (W - cw) / 2, (H - ch) / 2
+        im = foto.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch))
+        a = suav((tt - t_libro) / FUNDIDO_LIBRO)
+        if a < 1:
+            im = Image.blend(camara(pg, tt, i), im, float(a))
+        return im
 
     portada_t = 1.5
     camara(pagina(portada_t), portada_t, 0).save(destino_jpg, "JPEG", quality=93)
@@ -495,7 +519,10 @@ def generar(hook_txt, parrafos, destino_mp4, destino_jpg, seed=1, numero=None, e
             pg = final
         else:
             pg = pagina(tt)
-        p.stdin.write(camara(pg, tt, i).tobytes())
+        if t_libro is not None and tt >= t_libro:
+            p.stdin.write(libro(tt, pg, i).tobytes())
+        else:
+            p.stdin.write(camara(pg, tt, i).tobytes())
     p.stdin.close()
     if p.wait():
         raise RuntimeError("ffmpeg falló")
