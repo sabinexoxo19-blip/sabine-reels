@@ -1,6 +1,6 @@
 # Robot Instagram — @sabine_hypersensible
 
-Ce dossier contient un **robot** qui fabrique **123 Reels** (120 vérités lues par une voix + 3 photos du livre, environ 31 jours), puis **les publie tout seul, 4 fois par jour**. Ton ordinateur n'a pas besoin d'être allumé.
+Ce dossier contient un **robot** qui fabrique **120 Reels** lus par une voix (30 jours ; 1 sur 4 se termine sur la photo du livre en main, avec le lien dans la légende), puis **les publie tout seul, 4 fois par jour**. Ton ordinateur n'a pas besoin d'être allumé.
 
 Livre : *101 vérités que ton hypersensibilité essaie de te dire* — https://www.amazon.fr/dp/B0H8PYJKFB
 
@@ -57,7 +57,7 @@ La musique est mise au même niveau pour tous les morceaux, puis jouée bien en 
 ## Les mentions obligatoires
 
 - Chaque Reel lu par Vivienne porte **(voix de synthèse)** dans la légende.
-- Les Reels avec la photo du canapé portent **(visuel créé par IA)**.
+- La photo du livre utilisée est une vraie photo : aucune mention IA n'est nécessaire pour elle. Si un jour tu utilises le visuel du canapé (créé par IA), ajoute **(visuel créé par IA)** à la légende.
 
 Ne les retire pas : Meta demande de signaler les voix et les images réalistes créées par IA.
 
