@@ -2,15 +2,9 @@ name: Publier sur Instagram
 
 on:
   schedule:
-    # 4 Reels par jour, heure de Paris (le passage à l'heure d'hiver est géré tout seul).
-    - cron: "12 8 * * *"
-      timezone: "Europe/Paris"
-    - cron: "12 13 * * *"
-      timezone: "Europe/Paris"
-    - cron: "12 19 * * *"
-      timezone: "Europe/Paris"
-    - cron: "42 21 * * *"
-      timezone: "Europe/Paris"
+    # Réveil toutes les 30 minutes : le robot ne publie qu'aux créneaux de Paris
+    # (8 h 12, 13 h 12, 19 h 12, 21 h 42), même si GitHub le réveille en retard.
+    - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -34,6 +28,7 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+          AUTO: ${{ github.event_name == 'schedule' && '1' || '0' }}
         run: python3 publicar.py
 
       - name: Enregistrer l'état de la file
