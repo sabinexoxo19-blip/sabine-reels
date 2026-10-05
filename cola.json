@@ -45,10 +45,11 @@
     "verite": 89,
     "hook": "Si un coucher de soleil\npeut te faire pleurer,\nc'est une bonne nouvelle.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-05T11:16:08Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 36.82,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18021995291875987"
   },
   {
     "archivo": "0005.mp4",
