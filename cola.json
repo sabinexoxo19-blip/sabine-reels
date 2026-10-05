@@ -71,10 +71,11 @@
     "verite": 20,
     "hook": "Ce néon qui grésille,\npersonne ne l'entend…\nsauf toi.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-05T21:33:13Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 33.45,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17961888906209415"
   },
   {
     "archivo": "0007.mp4",
