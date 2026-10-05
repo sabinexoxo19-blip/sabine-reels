@@ -32,10 +32,11 @@
     "verite": 26,
     "hook": "Une belle soirée,\npuis deux jours\npour t'en remettre ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-05T06:16:38Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 32.9,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18110465936129037"
   },
   {
     "archivo": "0004.mp4",
