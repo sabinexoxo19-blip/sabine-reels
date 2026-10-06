@@ -123,10 +123,11 @@
     "verite": 35,
     "hook": "Un rien t'agace\nen fin de journée ?\nTon réservoir est plein.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-06T19:46:12Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 29.22,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18010441964987911"
   },
   {
     "archivo": "0011.mp4",
