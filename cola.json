@@ -110,10 +110,11 @@
     "verite": 94,
     "hook": "Tu pleures\n« pour un rien » ?\nC'est une soupape.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-06T17:16:31Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 28.96,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18349784881266043"
   },
   {
     "archivo": "0010.mp4",
