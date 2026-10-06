@@ -97,10 +97,11 @@
     "verite": null,
     "hook": "Tu n'as jamais\nété trop. Tu as\ntoujours été toi.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-06T11:16:04Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 33.7,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18150518380554530"
   },
   {
     "archivo": "0009.mp4",
