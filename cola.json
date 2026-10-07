@@ -175,10 +175,11 @@
     "verite": 85,
     "hook": "Tu as le droit\nde partir\nplus tôt.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-07T19:46:09Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 30.26,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18135803710728397"
   },
   {
     "archivo": "0015.mp4",
