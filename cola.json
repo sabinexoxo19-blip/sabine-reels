@@ -136,10 +136,11 @@
     "verite": null,
     "hook": "Quelle vérité\nt'a fait dire :\n« c'est moi » ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-07T06:16:07Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 23.68,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18191109733397309"
   },
   {
     "archivo": "0012.mp4",
