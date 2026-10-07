@@ -149,10 +149,11 @@
     "verite": 83,
     "hook": "Ton besoin\nde solitude n'est\npas un repli.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-07T11:16:55Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 30.49,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18019525112957706"
   },
   {
     "archivo": "0013.mp4",
