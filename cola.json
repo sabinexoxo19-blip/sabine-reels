@@ -162,10 +162,11 @@
     "verite": 82,
     "hook": "Tu souffres plus\nque les autres ?\nTu fleuris plus aussi.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-07T17:16:19Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 27.98,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17963608842198781"
   },
   {
     "archivo": "0014.mp4",
