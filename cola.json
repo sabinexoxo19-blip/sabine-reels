@@ -201,10 +201,11 @@
     "verite": 22,
     "hook": "Pourquoi une foule\nt'épuise autant ?\nVoici la raison.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-08T11:16:11Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 31.73,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18093289247170148"
   },
   {
     "archivo": "0017.mp4",
