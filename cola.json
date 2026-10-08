@@ -1089,10 +1089,11 @@
     "verite": 76,
     "hook": "Un message\nsans réponse\nt'affole ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2000-01-01T00:00:00Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 28.1,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "manuel-essai-B"
   },
   {
     "archivo": "0091.mp4",
@@ -1389,10 +1390,11 @@
     "verite": 72,
     "hook": "Tu rejoues une\nconversation des heures ?\nTu as tout capté.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2000-01-01T00:00:00Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 28.43,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "manuel-essai-B"
   },
   {
     "archivo": "0116.mp4",
