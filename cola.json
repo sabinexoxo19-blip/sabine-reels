@@ -214,10 +214,11 @@
     "verite": 5,
     "hook": "On te dit que tu\nte fais des idées ?\nTu vois en HD.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-08T17:16:30Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 31.84,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18134769598638905"
   },
   {
     "archivo": "0018.mp4",
