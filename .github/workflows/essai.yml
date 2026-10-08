@@ -1,0 +1,44 @@
+name: Essai format B
+
+# Fabrique quelques Reels au format B dans le dossier essais/, pour les publier à la main.
+on:
+  workflow_dispatch:
+    inputs:
+      numeros:
+        description: "Numéros des Reels, séparés par des virgules (ex. 9,90,115)"
+        default: "9,90,115"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: escritura-repo
+  cancel-in-progress: false
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les outils
+        run: |
+          which ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          pip install --quiet pillow numpy
+
+      - name: Fabriquer les essais
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: cd fabrica && python3 essai.py "${{ github.event.inputs.numeros }}"
+
+      - name: Enregistrer les essais
+        run: |
+          git config user.name "bot-publicador"
+          git config user.email "bot@users.noreply.github.com"
+          git add essais cola.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Essais format B"
+          git pull --rebase
+          git push
