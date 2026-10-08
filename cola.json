@@ -227,10 +227,11 @@
     "verite": 26,
     "hook": "Je m'en voulais\ndu contrecoup.\nMaintenant, je le planifie.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-08T19:46:15Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 27.02,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17865384450679837"
   },
   {
     "archivo": "0019.mp4",
