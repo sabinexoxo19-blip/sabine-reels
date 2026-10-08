@@ -33,9 +33,9 @@ def texte_parle(t):
     return re.sub(r"\s+", " ", t).strip()
 
 
-def ssml(t):
+def ssml(t, debit=DEBIT):
     return ("<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='fr-FR'>"
-            f"<voice name='{VOIX}'><prosody rate='{DEBIT}'>"
+            f"<voice name='{VOIX}'><prosody rate='{debit}'>"
             f"{escape(texte_parle(t))}</prosody></voice></speak>")
 
 
@@ -48,10 +48,10 @@ def _url():
     return f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1"
 
 
-def lire(texte):
+def lire(texte, debit=DEBIT):
     """Renvoie le chemin d'un MP3 où Vivienne lit ce texte (le crée si besoin)."""
     os.makedirs(CACHE, exist_ok=True)
-    cle_cache = hashlib.sha1(f"{VOIX}|{DEBIT}|{texte_parle(texte)}".encode()).hexdigest()[:16]
+    cle_cache = hashlib.sha1(f"{VOIX}|{debit}|{texte_parle(texte)}".encode()).hexdigest()[:16]
     chemin = os.path.join(CACHE, cle_cache + ".mp3")
     if os.path.exists(chemin) and os.path.getsize(chemin) > 1000:
         return chemin
@@ -59,7 +59,7 @@ def lire(texte):
     cle = os.environ.get("AZURE_SPEECH_KEY", "").strip()
     if not cle:
         sys.exit("Il manque le secret AZURE_SPEECH_KEY : la voix ne peut pas être fabriquée.")
-    corps = ssml(texte).encode("utf-8")
+    corps = ssml(texte, debit).encode("utf-8")
     for essai in range(8):
         attente = PAUSE_MIN - (time.time() - _derniere[0])
         if attente > 0:
