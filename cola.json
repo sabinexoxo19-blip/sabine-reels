@@ -240,10 +240,11 @@
     "verite": 61,
     "hook": "Dire non\nte fait mal ?\nC'est réel.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-09T06:16:58Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 30.76,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18036858434890472"
   },
   {
     "archivo": "0020.mp4",
