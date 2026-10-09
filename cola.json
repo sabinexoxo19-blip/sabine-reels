@@ -279,10 +279,11 @@
     "verite": 24,
     "hook": "Ta fatigue\nn'est pas de\nla paresse.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-09T19:46:27Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 29.85,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17977929284925219"
   },
   {
     "archivo": "0023.mp4",
