@@ -123,6 +123,13 @@ def main():
             "Keywords": TABLEAUX[cle][2],
         })
 
+    essai = os.path.join(RAIZ, "pinterest_prueba.csv")
+    if not a.prueba and os.path.exists(essai):          # épingles déjà importées avec l’essai : pas de doublon
+        with open(essai, encoding="utf-8") as fh:
+            deja = {r["Link"] for r in csv.DictReader(fh)}
+        lignes = [l for l in lignes if l["Link"] not in deja]
+        print(f"{len(deja)} épingles de l’essai déjà importées : retirées des fichiers du mois.")
+
     groupes = [lignes] if a.prueba else [lignes[k:k + PAR_CSV] for k in range(0, len(lignes), PAR_CSV)]
     for g_i, groupe in enumerate(groupes, start=1):
         nom = "pinterest_prueba.csv" if a.prueba else f"pinterest_mois{g_i}.csv"
