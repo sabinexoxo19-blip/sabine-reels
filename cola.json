@@ -266,10 +266,11 @@
     "verite": 52,
     "hook": "Tout va bien\net tu angoisses\nquand même ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-09T17:16:35Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 29.2,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18633659008053493"
   },
   {
     "archivo": "0022.mp4",
