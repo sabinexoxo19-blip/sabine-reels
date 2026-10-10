@@ -318,10 +318,11 @@
     "verite": 57,
     "hook": "Tu sens l'ambiance\nd'une pièce avant\nqu'on parle ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-10T17:16:16Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 30.93,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18282043477289484"
   },
   {
     "archivo": "0026.mp4",
