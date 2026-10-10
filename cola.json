@@ -331,10 +331,11 @@
     "verite": 86,
     "hook": "La nature te calme\nplus que tout ?\nC'est physiologique.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-10T19:46:14Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 33.26,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18355551415168257"
   },
   {
     "archivo": "0027.mp4",
