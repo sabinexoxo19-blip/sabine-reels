@@ -305,10 +305,11 @@
     "verite": 11,
     "hook": "Au bord des larmes\ndans un supermarché\ntrop éclairé ?",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-10T11:16:18Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 32.95,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18236939314318008"
   },
   {
     "archivo": "0025.mp4",
