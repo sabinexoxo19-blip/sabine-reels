@@ -292,10 +292,11 @@
     "verite": null,
     "hook": "Ce qu'on te reproche\net ce que c'est\nvraiment.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-10T06:16:17Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 28.41,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18093658112168590"
   },
   {
     "archivo": "0024.mp4",
