@@ -370,10 +370,11 @@
     "verite": 71,
     "hook": "Une critique\nte transperce ?\nC'est de la porosité.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-11T17:16:14Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 31.1,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17876424768635166"
   },
   {
     "archivo": "0030.mp4",
