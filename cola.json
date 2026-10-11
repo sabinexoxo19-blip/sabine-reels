@@ -344,10 +344,11 @@
     "verite": 48,
     "hook": "Tes pensées\ntournent la nuit ?\nTon cerveau range.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-11T06:16:40Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 31.89,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17948280405343385"
   },
   {
     "archivo": "0028.mp4",
