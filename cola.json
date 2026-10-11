@@ -383,10 +383,11 @@
     "verite": 17,
     "hook": "On te dit\nque tu en fais\ntrop ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-11T19:46:04Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 28.65,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18118760332980746"
   },
   {
     "archivo": "0031.mp4",
