@@ -422,10 +422,11 @@
     "verite": 62,
     "hook": "Tu excuses toujours\nceux qui te blessent ?\nVoici pourquoi.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-12T17:16:12Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 29.58,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17937800694390465"
   },
   {
     "archivo": "0034.mp4",
