@@ -409,10 +409,11 @@
     "verite": 28,
     "hook": "Tu ne ressens rien\nen pleine crise ?\nTon cœur se protège.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-12T11:17:06Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 33.77,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17988661716078388"
   },
   {
     "archivo": "0033.mp4",
