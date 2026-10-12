@@ -435,10 +435,11 @@
     "verite": 100,
     "hook": "Le monde a besoin\nde gens qui\nressentent fort.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-12T19:46:14Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 31.67,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18134871286679365"
   },
   {
     "archivo": "0035.mp4",
