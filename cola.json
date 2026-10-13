@@ -448,10 +448,11 @@
     "verite": 41,
     "hook": "Tu cherches pourquoi\ntu angoisses ?\nTon mental invente.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-13T06:16:15Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 33.59,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18155549434521290"
   },
   {
     "archivo": "0036.mp4",
