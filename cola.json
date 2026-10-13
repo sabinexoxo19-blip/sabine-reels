@@ -461,10 +461,11 @@
     "verite": 21,
     "hook": "Une étiquette\nqui gratte peut\nruiner ta journée ?",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-13T11:16:18Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 30.94,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17944906269096150"
   },
   {
     "archivo": "0037.mp4",
