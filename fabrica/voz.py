@@ -9,6 +9,7 @@ les caractères déjà lus. Le palier gratuit F0 accepte 20 requêtes par minute
 au plus une toutes les 3,2 secondes et on attend puis réessaie en cas de refus (429).
 """
 import hashlib
+import http.client
 import os
 import re
 import sys
@@ -89,7 +90,9 @@ def lire(texte, debit=DEBIT):
             pause = int(e.headers.get("Retry-After") or 0) or 20 * (essai + 1)
             print(f"Azure occupé (erreur {e.code}), nouvel essai dans {pause} s", flush=True)
             time.sleep(pause)
-        except (urllib.error.URLError, TimeoutError, RuntimeError) as e:
+        except (urllib.error.URLError, http.client.HTTPException, ConnectionError, TimeoutError, OSError,
+                RuntimeError) as e:
+            # coupure réseau, réponse tronquée (IncompleteRead), délai dépassé : on réessaie
             print(f"Problème réseau ({e}), nouvel essai", flush=True)
             time.sleep(10 * (essai + 1))
     sys.exit("Azure n'a pas répondu après plusieurs essais. Relance « Fabricar los Reels » plus tard : "
