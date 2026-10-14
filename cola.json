@@ -513,10 +513,11 @@
     "verite": 90,
     "hook": "Tu ne peux pas\ngarder que les\nbons côtés.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-14T11:16:55Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 32.81,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17990031300061930"
   },
   {
     "archivo": "0041.mp4",
