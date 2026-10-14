@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # état le plus récent de la file (un réveil mis en attente ne relit pas une file périmée)
 
       - name: Publier le Reel suivant
         env:
@@ -42,5 +44,9 @@ jobs:
           git add cola.json 2>/dev/null || exit 0
           git diff --cached --quiet && exit 0
           git commit -m "Publicado: $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase
+          if ! git pull --rebase; then
+            git rebase --abort
+            echo "Un autre réveil a déjà enregistré la file : rien à ajouter."
+            exit 0
+          fi
           git push
