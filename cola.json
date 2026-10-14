@@ -500,10 +500,11 @@
     "verite": 77,
     "hook": "Aimer fort\nsans te perdre\ndans l'autre.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-14T06:16:08Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 28.53,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18108865862608170"
   },
   {
     "archivo": "0040.mp4",
