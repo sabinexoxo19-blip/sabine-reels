@@ -539,10 +539,11 @@
     "verite": 34,
     "hook": "Le silence n'est pas\nun luxe pour toi.\nC'est un besoin.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-14T19:46:16Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 31.1,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18629517307050797"
   },
   {
     "archivo": "0043.mp4",
