@@ -526,10 +526,11 @@
     "verite": 53,
     "hook": "Ton anxiété\nest une jauge,\npas une ennemie.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-14T17:16:19Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 26.3,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18026140211858576"
   },
   {
     "archivo": "0042.mp4",
