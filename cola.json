@@ -578,10 +578,11 @@
     "verite": 65,
     "hook": "Tu portes les émotions\nde tout le monde ?\nEt toi ?",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-15T17:16:12Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 30.64,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18221171812355702"
   },
   {
     "archivo": "0046.mp4",
