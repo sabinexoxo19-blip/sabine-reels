@@ -565,10 +565,11 @@
     "verite": null,
     "hook": "4 phrases\nà te dire\nautrement.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-15T11:16:22Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 30.7,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18126992692892633"
   },
   {
     "archivo": "0045.mp4",
