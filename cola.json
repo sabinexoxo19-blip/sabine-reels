@@ -617,10 +617,11 @@
     "verite": 29,
     "hook": "Une scène violente\nà l'écran te fait\nmal pour de vrai ?",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-16T11:16:09Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 30.65,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18112371974335695"
   },
   {
     "archivo": "0049.mp4",
