@@ -604,10 +604,11 @@
     "verite": 49,
     "hook": "Une angoisse\n« sans raison » ?\nRegarde autour de toi.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-16T06:16:12Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 32.39,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18132073354886975"
   },
   {
     "archivo": "0048.mp4",
