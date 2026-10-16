@@ -630,10 +630,11 @@
     "verite": 6,
     "hook": "Hypersensible\nne veut pas dire\ntimide.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-16T17:16:10Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 31.22,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18384206953232391"
   },
   {
     "archivo": "0050.mp4",
