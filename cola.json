@@ -682,10 +682,11 @@
     "verite": 33,
     "hook": "Gorge serrée,\nventre noué ?\nTon corps te parle.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-17T17:16:13Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 28.91,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18152956402535758"
   },
   {
     "archivo": "0054.mp4",
