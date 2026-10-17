@@ -656,10 +656,11 @@
     "verite": 101,
     "hook": "Ta sensibilité s'apaise\nle jour où tu cesses\nde la combattre.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-17T06:16:08Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 29.87,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18077943350427574"
   },
   {
     "archivo": "0052.mp4",
