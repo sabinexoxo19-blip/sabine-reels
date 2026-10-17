@@ -695,10 +695,11 @@
     "verite": 3,
     "hook": "« Arrête d'y penser »\nn'a jamais marché.\nVoici pourquoi.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-17T19:46:13Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 29.85,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17982405314907880"
   },
   {
     "archivo": "0055.mp4",
