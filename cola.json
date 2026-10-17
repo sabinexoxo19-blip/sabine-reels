@@ -669,10 +669,11 @@
     "verite": 42,
     "hook": "Réfléchir pour\nte calmer ?\nÇa l'alimente.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-17T11:16:07Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 33.55,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18112774672877672"
   },
   {
     "archivo": "0053.mp4",
