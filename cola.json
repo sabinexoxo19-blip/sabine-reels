@@ -734,10 +734,11 @@
     "verite": 99,
     "hook": "Tu n'as pas\ntrop de sensibilité.\nPas assez d'espace.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-18T17:16:31Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 34.91,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17963933055206555"
   },
   {
     "archivo": "0058.mp4",
