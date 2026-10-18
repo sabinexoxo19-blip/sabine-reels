@@ -721,10 +721,11 @@
     "verite": 70,
     "hook": "Tu déclines\nles invitations ?\nTu fais un tri.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-18T11:16:54Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 33.5,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18139241281624986"
   },
   {
     "archivo": "0057.mp4",
