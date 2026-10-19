@@ -773,10 +773,11 @@
     "verite": 13,
     "hook": "Enfant, tu captais\ndéjà tout ?\nC'était toi.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-19T11:16:10Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 31.42,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18026265641870557"
   },
   {
     "archivo": "0061.mp4",
