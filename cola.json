@@ -799,10 +799,11 @@
     "verite": 66,
     "hook": "Poser une limite\nn'est pas de\nl'égoïsme.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-19T19:46:36Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 28.84,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17999049945010037"
   },
   {
     "archivo": "0063.mp4",
