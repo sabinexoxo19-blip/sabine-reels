@@ -760,10 +760,11 @@
     "verite": 30,
     "hook": "Ta nuque toujours\ndure ? Ton corps\ngarde le score.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-19T06:16:08Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 30.38,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17915968464557718"
   },
   {
     "archivo": "0060.mp4",
