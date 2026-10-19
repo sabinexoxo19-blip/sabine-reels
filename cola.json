@@ -786,10 +786,11 @@
     "verite": null,
     "hook": "3 phrases\nque tu as le droit\nde dire.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-19T17:16:32Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 22.14,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18116800919087836"
   },
   {
     "archivo": "0062.mp4",
