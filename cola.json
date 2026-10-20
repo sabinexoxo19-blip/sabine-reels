@@ -838,10 +838,11 @@
     "verite": 32,
     "hook": "Tu ne surréagis pas.\nTu redescends\nplus lentement.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-20T17:12:59Z",
     "musica": "leberch-flowing-piano-606083.mp3",
     "duracion": 32.39,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17983927161092899"
   },
   {
     "archivo": "0066.mp4",
