@@ -825,10 +825,11 @@
     "verite": 43,
     "hook": "Relativiser ?\nTon corps ne\ncomprend pas les mots.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-20T11:16:08Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 34.82,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17988206861882380"
   },
   {
     "archivo": "0065.mp4",
