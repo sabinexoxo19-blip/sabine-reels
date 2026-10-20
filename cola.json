@@ -812,10 +812,11 @@
     "verite": 88,
     "hook": "Ta sensibilité\nrend ton travail\nplus vrai.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-20T06:16:09Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 31.24,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17934777114143606"
   },
   {
     "archivo": "0064.mp4",
