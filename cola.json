@@ -851,10 +851,11 @@
     "verite": 9,
     "hook": "Une mode récente ?\nOn l'observe chez plus\nde 100 espèces.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-20T19:46:12Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 32.61,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18135123730677774"
   },
   {
     "archivo": "0067.mp4",
