@@ -864,10 +864,11 @@
     "verite": 58,
     "hook": "Ton empathie\nn'est pas un choix.\nC'est un câblage.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-21T06:16:09Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 28.65,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18147512083566476"
   },
   {
     "archivo": "0068.mp4",
