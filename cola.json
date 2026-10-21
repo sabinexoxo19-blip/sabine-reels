@@ -890,10 +890,11 @@
     "verite": 55,
     "hook": "Pas besoin d'être\nmoins sensible. Juste\nd'écouter plus tôt.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-21T17:16:20Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 28.84,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18130312384828632"
   },
   {
     "archivo": "0070.mp4",
