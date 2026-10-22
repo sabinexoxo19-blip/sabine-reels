@@ -942,10 +942,11 @@
     "verite": 67,
     "hook": "Tu n'as pas à\nmériter ta place\nen te vidant.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-22T17:16:26Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 32.2,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18098817557650454"
   },
   {
     "archivo": "0074.mp4",
