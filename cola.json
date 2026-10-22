@@ -929,10 +929,11 @@
     "verite": 4,
     "hook": "Tu mets du temps\nà répondre ?\nC'est de la profondeur.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-22T11:16:13Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 30.14,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17904437175668317"
   },
   {
     "archivo": "0073.mp4",
