@@ -916,10 +916,11 @@
     "verite": 21,
     "hook": "J'ai passé une soirée\nentière à cause\nd'une lampe.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-22T06:16:40Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 29.15,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17907807864568745"
   },
   {
     "archivo": "0072.mp4",
