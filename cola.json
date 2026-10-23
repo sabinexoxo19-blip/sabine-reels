@@ -981,10 +981,11 @@
     "verite": 37,
     "hook": "Trop chaud, trop fort,\ntrop lumineux ?\nTon détecteur est fin.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-23T11:16:15Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 33.34,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18101292308071747"
   },
   {
     "archivo": "0077.mp4",
