@@ -994,10 +994,11 @@
     "verite": 8,
     "hook": "Ta sensibilité\nn'est pas une\nmaladie.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-23T17:16:54Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 30.88,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "17915478867526774"
   },
   {
     "archivo": "0078.mp4",
