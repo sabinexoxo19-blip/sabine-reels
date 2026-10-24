@@ -1059,10 +1059,11 @@
     "verite": 36,
     "hook": "Tu aimes savoir\noù tu mets les pieds ?\nC'est de la stratégie.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-24T19:46:05Z",
     "musica": "leberch-piano-calm-525211.mp3",
     "duracion": 32.37,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18157487878520233"
   },
   {
     "archivo": "0083.mp4",
