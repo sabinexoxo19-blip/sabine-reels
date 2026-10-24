@@ -1046,10 +1046,11 @@
     "verite": 45,
     "hook": "Un terrain fertile\npour l'anxiété n'est\npas une fatalité.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-24T17:16:10Z",
     "musica": "leberch-piano-ballad-611630.mp3",
     "duracion": 28.48,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18118496920804124"
   },
   {
     "archivo": "0082.mp4",
