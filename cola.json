@@ -1072,10 +1072,11 @@
     "verite": 2,
     "hook": "Il n'y a pas eu\nd'erreur à ta\nfabrication.",
     "fin_livre": false,
-    "publicado": null,
+    "publicado": "2026-10-25T07:16:13Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 31.41,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18095160338159755"
   },
   {
     "archivo": "0084.mp4",
