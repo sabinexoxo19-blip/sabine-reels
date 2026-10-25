@@ -49,8 +49,9 @@ def http(req):
 
 def jeton():
     data = urllib.parse.urlencode({
-        "client_id": os.environ["YT_CLIENT_ID"], "client_secret": os.environ["YT_CLIENT_SECRET"],
-        "refresh_token": os.environ["YT_REFRESH_TOKEN"], "grant_type": "refresh_token"}).encode()
+        # .strip() : enlève les espaces et retours à la ligne collés par erreur avec les clés
+        "client_id": os.environ["YT_CLIENT_ID"].strip(), "client_secret": os.environ["YT_CLIENT_SECRET"].strip(),
+        "refresh_token": os.environ["YT_REFRESH_TOKEN"].strip(), "grant_type": "refresh_token"}).encode()
     _, corps = http(urllib.request.Request("https://oauth2.googleapis.com/token", data=data))
     return json.loads(corps)["access_token"]
 
@@ -74,7 +75,7 @@ def main():
     if not os.path.exists(chemin):
         sys.exit(f"Vidéo introuvable : posts/{post['archivo']}")
     print(f"YouTube — suivante : {post['archivo']} ({len(attente)} en attente)\nTitre : {post['titre']}")
-    if not os.environ.get("YT_REFRESH_TOKEN"):
+    if not os.environ.get("YT_REFRESH_TOKEN", "").strip():
         print("::warning::YouTube : les clés YT_… ne sont pas encore installées, on passe.")
         return
     acces = jeton()                      # vérifie aussi que les 3 clés sont bonnes
