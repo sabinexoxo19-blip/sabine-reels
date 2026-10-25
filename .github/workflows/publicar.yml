@@ -3,7 +3,7 @@ name: Publier sur Instagram
 on:
   schedule:
     # Réveil toutes les 30 minutes : le robot ne publie qu'aux créneaux de Paris
-    # (8 h 12, 13 h 12, 19 h 12, 21 h 42), même si GitHub le réveille en retard.
+    # (8 h 12, 12 h 42, 20 h 12), même si GitHub le réveille en retard.
     - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "bot-publicador"
           git config user.email "bot@users.noreply.github.com"
-          git add cola.json 2>/dev/null || exit 0
+          git add cola_livre.json 2>/dev/null || exit 0
           git diff --cached --quiet && exit 0
           git commit -m "Publicado: $(date -u +%Y-%m-%dT%H:%MZ)"
           if ! git pull --rebase; then

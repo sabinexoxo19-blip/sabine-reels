@@ -17,14 +17,15 @@ from zoneinfo import ZoneInfo
 
 API = "https://graph.instagram.com"
 RAIZ = os.path.dirname(os.path.abspath(__file__))
-COLA = os.path.join(RAIZ, "cola.json")
-AVISO_COLA_BAJA = 12          # moins de 3 jours de Reels à 4 par jour
+COLA = os.path.join(RAIZ, "cola_livre.json")            # Reels « livre ouvert » (101 vérités)
+COLA_ANCIENNE = os.path.join(RAIZ, "cola.json")          # anciens Reels : plus publiés, gardés pour l'historique
+AVISO_COLA_BAJA = 9           # moins de 3 jours de Reels à 3 par jour
 
 # Créneaux de publication, heure de Paris. Le robot est réveillé toutes les 30 minutes par GitHub
 # (dont les horaires programmés peuvent avoir des heures de retard) et ne publie que si un créneau
 # est passé depuis la dernière publication.
 PARIS = ZoneInfo("Europe/Paris")
-CRENEAUX = [(8, 12), (13, 12), (19, 12), (21, 42)]
+CRENEAUX = [(8, 12), (12, 42), (20, 12)]
 RETARD_MAX = timedelta(hours=2)     # créneau manqué depuis plus longtemps : on attend le suivant
 ECART_MIN = timedelta(hours=2)      # jamais deux Reels à moins de 2 h d'écart
 
@@ -41,8 +42,12 @@ def creneau_courant(maintenant):
 
 def faut_il_publier(cola, maintenant):
     """(True/False, raison) pour un réveil automatique."""
+    tous = list(cola)
+    if os.path.exists(COLA_ANCIENNE):          # la dernière publication peut venir de l'ancienne file
+        with open(COLA_ANCIENNE, encoding="utf-8") as f:
+            tous += json.load(f)
     dates = [datetime.strptime(p["publicado"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-             for p in cola if p.get("publicado")]
+             for p in tous if p.get("publicado")]
     derniere = max(dates) if dates else None
     creneau = creneau_courant(maintenant)
     if derniere and derniere >= creneau:
@@ -98,7 +103,7 @@ def marcar(cola, post, media_id):
 
 def main():
     if not os.path.exists(COLA):
-        print("Pas encore de Reels : lance d'abord « Fabriquer les Reels » dans l'onglet Actions.")
+        print("La file cola_livre.json est introuvable : as-tu bien envoyé les fichiers sur GitHub ?")
         return
     with open(COLA, encoding="utf-8") as f:
         cola = json.load(f)
@@ -110,7 +115,7 @@ def main():
         if not ok:
             return
     if not pendientes:
-        sys.exit("La file est vide : plus rien à publier. Il faut ajouter de nouveaux Reels.")
+        sys.exit("La file est vide : les 101 vérités sont publiées. Il faut ajouter de nouveaux Reels.")
     post = pendientes[0]
     url_video = f"{base_url()}/posts/{post['archivo']}"
     dry = os.environ.get("DRY_RUN") == "1"
