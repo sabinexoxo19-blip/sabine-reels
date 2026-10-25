@@ -1085,10 +1085,11 @@
     "verite": 68,
     "hook": "Ce masque\nde « normalité »\nte coûte cher.",
     "fin_livre": true,
-    "publicado": null,
+    "publicado": "2026-10-25T12:16:50Z",
     "musica": "leberch-calm-piano-586711.mp3",
     "duracion": 29.04,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18061630472569181"
   },
   {
     "archivo": "0085.mp4",
