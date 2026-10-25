@@ -36,12 +36,22 @@ jobs:
           AUTO: ${{ (github.event_name == 'schedule' || github.event.inputs.auto == '1') && '1' || '0' }}
         run: python3 publicar.py
 
+      - name: Publier le Short YouTube
+        if: ${{ always() }}
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+          AUTO: ${{ (github.event_name == 'schedule' || github.event.inputs.auto == '1') && '1' || '0' }}
+        run: python3 publicar_youtube.py
+
       - name: Enregistrer l'état de la file
-        if: ${{ (github.event.inputs.dry_run || '0') != '1' }}
+        if: ${{ always() && (github.event.inputs.dry_run || '0') != '1' }}
         run: |
           git config user.name "bot-publicador"
           git config user.email "bot@users.noreply.github.com"
-          git add cola_livre.json 2>/dev/null || exit 0
+          git add cola_livre.json cola_youtube.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "Publicado: $(date -u +%Y-%m-%dT%H:%MZ)"
           if ! git pull --rebase; then
