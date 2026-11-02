@@ -281,10 +281,11 @@
     "tipo": "livre",
     "verite": 5,
     "decor": "plaid",
-    "publicado": null,
+    "publicado": "2026-11-02T11:46:22Z",
     "musica": "nastelbom-emotional-piano-606704.mp3",
     "duracion": 13.0,
-    "portada_ms": 1500
+    "portada_ms": 1500,
+    "media_id": "18158065783522085"
   },
   {
     "archivo": "r025.mp4",
